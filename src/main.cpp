@@ -22,8 +22,7 @@ String myBtName = "ESP32-BT-Master";
 BluetoothSerial SerialBT;
 
 #ifdef USE_NAME
-// String slaveName = "EMUCANBT_SPP";
-String slaveName = "EMULOGGER";
+String slaveName = "EMUCANBT_SPP";  // not recommended
 #else
 uint8_t address[6] = {MAC0, MAC1, MAC2, MAC3, MAC4, MAC5};  // setup the value in lib/emu_mac_address.h
 #endif
@@ -334,6 +333,7 @@ void callbackReadBTData(const uint8_t *buffer, size_t size) {
     } else if (chData == 6) {
       ign = (static_cast<int>(value) / 2);
       lv_table_set_cell_value(table, 4, 3, (String(ign) + " °").c_str());
+      // TODO: value computed is incorrect
     } else if (chData == 19) {
       inj = (static_cast<int>(value) / 2);
       lv_table_set_cell_value(table, 4, 1, (String(inj) + " %").c_str());
