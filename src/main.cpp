@@ -307,7 +307,7 @@ void callbackReadBTData(const uint8_t *buffer, size_t size) {
     valueH = buffer[i + 2];
     valueL = buffer[i + 3];
     value = (valueH << 8) | valueL;
-    checksum = buffer[i + 4];  // should be checked
+    checksum = buffer[i + 4];  // TODO: should be checked
     chData = static_cast<int>(channel);
     // Serial.printf("channel %d - value %d - checksum %d\n", channel, value, checksum);
     // Serial.printf("msg: %x %x %x %x %x\n", channel, idChar, valueH, valueL, checksum);
