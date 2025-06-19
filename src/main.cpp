@@ -228,26 +228,16 @@ void create_table() {
   lv_timer_handler();
 }
 
-bool isBlueOn = false;
 void ledStatus() {
   if (!SerialBT.hasClient()) {
     // we should reinit all values
     cel = 0;
-    if (!isBlueOn) {
-      ledBlue();
-    } else {
-      ledOff();
-    }
-    isBlueOn = !isBlueOn;
+    ledBlinkBlue();
   } else {
     if (cel > 0) {
-      isBlueOn = false;
       ledRed();
     } else {
-      if (!isBlueOn) {
-        ledBlue();
-      }
-      isBlueOn = true;
+      ledBlue();
     }
   }
 }
@@ -301,6 +291,11 @@ void callbackReadBTData(const uint8_t *buffer, size_t size) {
   uint8_t checksum;
   uint16_t value;
   int chData;
+
+  if (size % 5 > 0) {
+    // discard buffers as the data might be corrupted due to data drop/rx busy
+    return;
+  }
   for (size_t i = 0; i < size;) {
     channel = buffer[i];
     valueH = buffer[i + 2];
@@ -361,12 +356,9 @@ void loop() {
 
 void setup() {
   // Init led
-  pinMode(4, OUTPUT);
-  pinMode(17, OUTPUT);
-  pinMode(16, OUTPUT);
+  initLed();
   ledOff();
 
-  // init TFT
   tft.init();
   pinMode(backLightPin, OUTPUT);
   digitalWrite(backLightPin, LOW);
@@ -376,6 +368,7 @@ void setup() {
   // init Serial
   Serial.begin(115200);
   Serial.println("setup!");
+  // init TFT
 
   pinMode(buzzerPin, OUTPUT);
 

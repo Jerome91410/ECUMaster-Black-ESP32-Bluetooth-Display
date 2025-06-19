@@ -1,5 +1,20 @@
+#ifndef _LED_CONTROL_h
+#define _LED_CONTROL_h
+
+void initLed();
+void ledOff();
 void ledRed();
 void ledGreen();
 void ledBlue();
+void ledBlinkBlue();
 void ledWhite();
-void ledOff();
+
+enum LED_STATUS {
+  OFF = 0,
+  RED,
+  GREEN,
+  BLUE,
+  WHITE,
+};
+
+#endif

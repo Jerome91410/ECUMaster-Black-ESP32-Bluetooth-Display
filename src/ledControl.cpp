@@ -1,31 +1,63 @@
 #include <Arduino.h>
+#include <ledControl.h>
 
-void ledRed() {
-  digitalWrite(4, 0);
-  digitalWrite(16, 1);
-  digitalWrite(17, 1);
-}
+LED_STATUS ledStatus = OFF;
 
-void ledGreen() {
-  digitalWrite(4, 1);
-  digitalWrite(16, 0);
-  digitalWrite(17, 1);
-}
-
-void ledBlue() {
-  digitalWrite(4, 1);
-  digitalWrite(16, 1);
-  digitalWrite(17, 0);
-}
-
-void ledWhite() {
-  digitalWrite(4, 0);
-  digitalWrite(16, 0);
-  digitalWrite(17, 0);
+void initLed() {
+  pinMode(4, OUTPUT);
+  pinMode(17, OUTPUT);
+  pinMode(16, OUTPUT);
 }
 
 void ledOff() {
-  digitalWrite(4, 1);
-  digitalWrite(16, 1);
-  digitalWrite(17, 1);
+  if (ledStatus != OFF) {
+    digitalWrite(4, 1);
+    digitalWrite(16, 1);
+    digitalWrite(17, 1);
+    ledStatus = OFF;
+  }
+}
+
+void ledRed() {
+  if (ledStatus != RED) {
+    digitalWrite(4, 0);
+    digitalWrite(16, 1);
+    digitalWrite(17, 1);
+    ledStatus = RED;
+  }
+}
+
+void ledGreen() {
+  if (ledStatus != GREEN) {
+    digitalWrite(4, 1);
+    digitalWrite(16, 0);
+    digitalWrite(17, 1);
+    ledStatus = GREEN;
+  }
+}
+
+void ledBlue() {
+  if (ledStatus != BLUE) {
+    digitalWrite(4, 1);
+    digitalWrite(16, 1);
+    digitalWrite(17, 0);
+    ledStatus = BLUE;
+  }
+}
+
+void ledWhite() {
+  if (ledStatus != WHITE) {
+    digitalWrite(4, 0);
+    digitalWrite(16, 0);
+    digitalWrite(17, 0);
+    ledStatus = WHITE;
+  }
+}
+
+void ledBlinkBlue() {
+  if (ledStatus == OFF) {
+    ledBlue();
+  } else {
+    ledOff();
+  }
 }

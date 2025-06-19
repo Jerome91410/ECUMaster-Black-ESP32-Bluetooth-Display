@@ -10,8 +10,8 @@
         "ms-vscode.cpptools-extension-pack",
         "ms-vscode.cpptools-themes",
         "platformio.platformio-ide",
-        "xaver.clang-format",
-        "wayou.vscode-todo-highlight"
+        "wayou.vscode-todo-highlight",
+        "xaver.clang-format"
     ],
     "unwantedRecommendations": [
         "ms-vscode.cpptools-extension-pack"
