@@ -47,6 +47,17 @@ This project interfaces the **ECUMaster Black ECU** with an **ESP32** to create 
 
 ---
 
+### LED Behavior
+
+- FLashing blue: Looking for connection
+- White: trying to establish connection with your emu
+- Blue: connected
+- Red:  error occured
+  - if not connected, failed to connect to your emu
+  - if connected, check engine light ON
+
+---
+
 ### 📦 Dependencies
 
 - [BluetoothSerial](https://github.com/espressif/arduino-esp32/tree/master/libraries/BluetoothSerial)
