@@ -9,3 +9,8 @@
 #define MAC5 0x00
 
 #endif
+
+// to push any modifications, you should track changes first
+// git update-index --no-assume-unchanged .\include\emu_mac_address.h
+// then after pushed untrack again
+// git update-index --assume-unchanged .\include\emu_mac_address.h
