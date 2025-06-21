@@ -19,7 +19,7 @@ void renderDisplay(lv_obj_t *table, EMUSerial emuSerial) {
   lv_table_set_cell_value(table, 1, 1, String(emuData.wboAFR).c_str());
   lv_table_set_cell_value(table, 3, 1, (String(emuData.MAP) + " KPA").c_str());
   // calculated boost, seems incorrect as it should take into considerationt baro
-  lv_table_set_cell_value(table, 3, 3, (String((emuData.MAP / 100) - 1.0132f) + " BAR").c_str());
+  lv_table_set_cell_value(table, 3, 3, (String((static_cast<float>(emuData.MAP) / 100) - 1.0132f) + " BAR").c_str());
   lv_table_set_cell_value(table, 2, 1, (String(emuData.TPS) + " %").c_str());
   lv_table_set_cell_value(table, 1, 3, (String(emuData.CLT) + " °C").c_str());
   lv_table_set_cell_value(table, 4, 3, (String(emuData.IgnAngle) + " °").c_str());
@@ -84,6 +84,7 @@ static void table_event_cb_bg(lv_event_t *e) {
     lv_color_t bg_color = lv_color_make(30, 30, 30);
     lv_color_t text_color = lv_color_white();
 
+    // TODO: find a way to store the min/max value in EMUSerial
     if (row == 0 && col == 1 && value > 7000.00) {
       bg_color = lv_color_make(0, 0, 255);
       text_color = lv_color_white();

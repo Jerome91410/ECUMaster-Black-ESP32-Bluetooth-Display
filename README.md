@@ -50,11 +50,13 @@ This project interfaces the **ECUMaster Black ECU** with an **ESP32** to create 
 ### LED Behavior
 
 - FLashing blue: Looking for connection
-- White: trying to establish connection with your emu
+- Green: trying to establish connection with your emu
 - Blue: connected
 - Red:  error occured
   - if not connected, failed to connect to your emu
   - if connected, check engine light ON
+- White: 88% max rpm
+- Flashing White: 95% max rpm
 
 ---
 

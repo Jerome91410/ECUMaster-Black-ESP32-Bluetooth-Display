@@ -61,3 +61,12 @@ void ledBlinkBlue() {
     ledOff();
   }
 }
+
+void ledFastBlinkWhite() {
+  for (int i = 0; i < 3; i++) {
+    ledWhite();
+    delay(50);
+    ledOff();
+    delay(50);
+  }
+}

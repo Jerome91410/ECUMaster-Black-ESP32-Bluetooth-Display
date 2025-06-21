@@ -41,51 +41,51 @@ void EMUSerial::onReceive(const uint8_t *buffer, size_t size) {
     } else if (channel == 4) {
       emu_data.IAT = static_cast<int8_t>(value);
     } else if (channel == 5) {
-      emu_data.Batt = static_cast<float>(value / 37);
+      emu_data.Batt = static_cast<float>(value) / 37;
     } else if (channel == 6) {
       emu_data.IgnAngle = static_cast<int8_t>(value / 2);
     } else if (channel == 7) {
-      emu_data.pulseWidth = static_cast<float>(value / 62);
+      emu_data.pulseWidth = static_cast<float>(value) / 62;
     } else if (channel == 8) {
       emu_data.EGT1 = value;
     } else if (channel == 9) {
       emu_data.EGT2 = value;
     } else if (channel == 10) {
-      emu_data.knockLevel = static_cast<float>(value / 51);
+      emu_data.knockLevel = static_cast<float>(value) / 51;
     } else if (channel == 11) {
-      emu_data.dwellTime = static_cast<float>(value / 20);
+      emu_data.dwellTime = static_cast<float>(value) / 20;
     } else if (channel == 12) {
-      emu_data.wboAFR = static_cast<float>(value / 10);
+      emu_data.wboAFR = static_cast<float>(value) / 10;
     } else if (channel == 13) {
       emu_data.gear = static_cast<int8_t>(value);
     } else if (channel == 14) {
       emu_data.Baro = static_cast<int8_t>(value);
     } else if (channel == 15) {
-      emu_data.analogIn1 = static_cast<float>(value / 51);
+      emu_data.analogIn1 = static_cast<float>(value) / 51;
     } else if (channel == 16) {
-      emu_data.analogIn2 = static_cast<float>(value / 51);
+      emu_data.analogIn2 = static_cast<float>(value) / 51;
     } else if (channel == 17) {
-      emu_data.analogIn3 = static_cast<float>(value / 51);
+      emu_data.analogIn3 = static_cast<float>(value) / 51;
     } else if (channel == 18) {
-      emu_data.analogIn4 = static_cast<float>(value / 51);
+      emu_data.analogIn4 = static_cast<float>(value) / 51;
     } else if (channel == 19) {
-      emu_data.injDC = static_cast<float>(value / 2);
+      emu_data.injDC = static_cast<float>(value) / 2;
     } else if (channel == 20) {
       emu_data.emuTemp = static_cast<int8_t>(value);
     } else if (channel == 21) {
-      emu_data.oilPressure = static_cast<float>(value / 16);
+      emu_data.oilPressure = static_cast<float>(value) / 16;
     } else if (channel == 22) {
       emu_data.oilTemperature = static_cast<int8_t>(value);
     } else if (channel == 23) {
-      emu_data.fuelPressure = static_cast<float>(value / 16);
+      emu_data.fuelPressure = static_cast<float>(value) / 16;
     } else if (channel == 24) {
       emu_data.CLT = value;
     } else if (channel == 25) {
-      emu_data.flexFuelEthanolContent = static_cast<float>(value / 2);
+      emu_data.flexFuelEthanolContent = static_cast<float>(value) / 2;
     } else if (channel == 26) {
       emu_data.ffTemp = static_cast<int8_t>(value);
     } else if (channel == 27) {
-      emu_data.wboLambda = static_cast<float>(value / 128);
+      emu_data.wboLambda = static_cast<float>(value) / 128;
     } else if (channel == 28) {
       emu_data.vssSpeed = value / 4;
     } else if (channel == 29) {
@@ -95,13 +95,13 @@ void EMUSerial::onReceive(const uint8_t *buffer, size_t size) {
     } else if (channel == 31) {
       emu_data.tablesSet = static_cast<int>(value);
     } else if (channel == 32) {
-      emu_data.lambdaTarget = static_cast<float>(value / 100);
+      emu_data.lambdaTarget = static_cast<float>(value) / 100;
     } else if (channel == 33) {
-      emu_data.secondaryPulseWidth = static_cast<float>(value / 62);
+      emu_data.secondaryPulseWidth = static_cast<float>(value) / 62;
     } else if (channel == 34) {
-      emu_data.analogIn5 = static_cast<float>(value / 51);
+      emu_data.analogIn5 = static_cast<float>(value) / 51;
     } else if (channel == 35) {
-      emu_data.analogIn6 = static_cast<float>(value / 51);
+      emu_data.analogIn6 = static_cast<float>(value) / 51;
     } else if (channel == 255) {
       emu_data.cel = value;
     }

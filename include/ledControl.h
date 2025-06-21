@@ -8,6 +8,7 @@ void ledGreen();
 void ledBlue();
 void ledBlinkBlue();
 void ledWhite();
+void ledFastBlinkWhite();
 
 enum LED_STATUS {
   OFF = 0,
