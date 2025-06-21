@@ -40,7 +40,7 @@ lv_obj_t *table;
 void connectToBt() {
   bool connected;
   if (!SerialBT.hasClient()) {
-    ledGreen();
+    ledLightBlue();
 #ifdef USE_NAME
     connected = SerialBT.connect(slaveName);
 #else
@@ -108,7 +108,6 @@ void setup() {
 
   // Init led
   initLed();
-  ledOff();
   // set grid
   table = initDisplay();
   // init bluetooth

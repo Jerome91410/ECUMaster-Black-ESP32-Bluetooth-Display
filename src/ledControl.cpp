@@ -7,6 +7,7 @@ void initLed() {
   pinMode(4, OUTPUT);
   pinMode(17, OUTPUT);
   pinMode(16, OUTPUT);
+  ledOff();
 }
 
 void ledOff() {
@@ -26,13 +27,21 @@ void ledRed() {
     ledStatus = RED;
   }
 }
-
 void ledGreen() {
   if (ledStatus != GREEN) {
     digitalWrite(4, 1);
     digitalWrite(16, 0);
     digitalWrite(17, 1);
     ledStatus = GREEN;
+  }
+}
+
+void ledLightBlue() {
+  if (ledStatus != LIGHT_BLUE) {
+    digitalWrite(4, 1);
+    digitalWrite(16, 0);
+    digitalWrite(17, 0);
+    ledStatus = LIGHT_BLUE;
   }
 }
 
