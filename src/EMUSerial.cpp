@@ -8,6 +8,8 @@ EMUSerial::EMUSerial() {
 
 void EMUSerial::init() {
   emu_data.analogIn1 = 0;
+  emu_data.RPM = 0;
+  emu_data.knockCount = 0;
 }
 
 void EMUSerial::onReceive(const uint8_t *buffer, size_t size) {
@@ -143,6 +145,7 @@ string EMUSerial::decodeCel() {
     }
     if (emu_data.cel & KNOCKING) {
       cel_errors += "KNOCK ";
+      emu_data.knockCount++;
     }
     if (emu_data.cel & ERR_WBO) {
       cel_errors += "WBO ";

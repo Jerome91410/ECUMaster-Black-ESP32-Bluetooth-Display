@@ -46,6 +46,7 @@ struct emu_data_t {
   float lambdaTarget;            // λ
   float secondaryPulseWidth;     // ms
   uint16_t cel;
+  uint16_t knockCount;
 };
 
 class EMUSerial {
